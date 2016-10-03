@@ -1,0 +1,1338 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>Portfolio</title>
+    <link href="./css/layout.css" rel="stylesheet" type="text/css">
+    <link href="./css/page-style.css" rel="stylesheet" type="text/css">
+    <link href="./css/content-style.css" rel="stylesheet" type="text/css">
+    <link href="./css/mpanoram.css" rel="stylesheet" type="text/css">
+    <script type="application/javascript" src="./js/mpanoram.js"></script>
+    <style type="text/css">
+
+    #lleo_dialog,
+    #lleo_dialog * {
+        color: #000 !important;
+        font: normal 13px Arial, Helvetica !important;
+        line-height: 15px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none 0 !important;
+        position: static !important;
+        vertical-align: baseline !important;
+        overflow: visible !important;
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        float: none !important;
+        visibility: visible !important;
+        text-align: left !important;
+        text-transform: none !important;
+        border-collapse: separate !important;
+        border-spacing: 2px !important;
+        box-sizing: content-box !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        text-shadow: none !important;
+        letter-spacing: normal !important;
+        -webkit-filter: none !important;
+        -moz-filter: none !important;
+        filter: none !important;
+    }
+
+    #lleo_dialog *:before,
+    #lleo_dialog *:after {
+        content: '';
+    }
+
+    #lleo_dialog iframe {
+        height: 0 !important;
+        width: 0 !important;
+    }
+
+    #lleo_dialog {
+        position: absolute !important;
+        background: #fff !important;
+        border: solid 1px #ccc !important;
+        padding: 7px 0 0 !important;
+        left: -999px;
+        top: -999px;
+        width: 440px !important;
+        overflow: hidden;
+        display: block !important;
+        z-index: 999999999 !important;
+        box-shadow: 8px 16px 30px rgba(0, 0, 0, 0.16) !important;
+        border-radius: 3px !important;
+        opacity: 0 !important;
+        -webkit-transform: translateY(15px);
+        -moz-transform: translateY(15px);
+        -ms-transform: translateY(15px);
+        -o-transform: translateY(15px);
+        transform: translateY(15px);
+    }
+
+    #lleo_dialog.lleo_show_small {
+        width: 150px !important;
+    }
+
+    #lleo_dialog.lleo_show {
+        opacity: 1 !important;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.3s !important;
+        -moz-transition: -moz-transform 0.3s, opacity 0.3s !important;
+        -ms-transition: -ms-transform 0.3s, opacity 0.3s !important;
+        -o-transition: -o-transform 0.3s, opacity 0.3s !important;
+        transition: transform 0.3s, opacity 0.3s !important;
+    }
+
+    #lleo_dialog.lleo_collapse {
+        opacity: 0 !important;
+        -webkit-transform: scale(0.25, 0.1) translate(-550px, 100px);
+        -moz-transform: scale(0.25, 0.1) translate(-550px, 100px);
+        -ms-transform: scale(0.25, 0.1) translate(-550px, 100px);
+        -o-transform: scale(0.25, 0.1) translate(-550px, 100px);
+        transform: scale(0.25, 0.1) translate(-550px, 100px);
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.4s !important;
+        -moz-transition: -moz-transform 0.4s, opacity 0.4s !important;
+        -ms-transition: -ms-transform 0.4s, opacity 0.4s !important;
+        -o-transition: -o-transform 0.4s, opacity 0.4s !important;
+        transition: transform 0.4s, opacity 0.4s !important;
+    }
+
+    #lleo_dialog input::-webkit-input-placeholder {
+        color: #aaa !important;
+    }
+
+    #lleo_dialog .lleo_has_pic #lleo_word {
+        margin-right: 80px !important;
+    }
+
+    #lleo_dialog #lleo_translationsContainer1 {
+        position: relative !important;
+    }
+
+    #lleo_dialog #lleo_translationsContainer2 {
+        padding: 7px 0 0 !important;
+        vertical-align: middle !important;
+    }
+
+    #lleo_dialog #lleo_word {
+        color: #000 !important;
+        margin: 0 5px 2px 0 !important;
+        /*float: left !important;*/
+    }
+
+    #lleo_dialog .lleo_has_sound #lleo_word {
+        margin-left: 30px !important;
+    }
+
+    #lleo_dialog #lleo_text {
+        font-weight: bold !important;
+        color: #d56e00 !important;
+        text-decoration: none !important;
+        cursor: default !important;
+    }
+
+    /*
+    #lleo_dialog #lleo_text.lleo_known {
+        cursor: pointer !important;
+        text-decoration: underline !important;
+    }
+    */
+    /*#lleo_dialog #lleo_closeBtn {
+        position: absolute !important;
+        right: 6px !important;
+        top: 5px !important;
+        line-height: 1px !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+        font-size: 0 !important;
+        color: #aaa !important;
+        display: block !important;
+        z-index: 9999999999 !important;
+        width: 7px !important;
+        height: 7px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }*/
+
+    #lleo_dialog #lleo_optionsBtn {
+        position: absolute !important;
+        right: 3px !important;
+        top: 5px !important;
+        line-height: 1px !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+        font-size: 13px !important;
+        color: #aaa !important;
+        padding: 2px !important;
+        display: none;
+    }
+
+    #lleo_dialog.lleo_optionsShown #lleo_optionsBtn {
+        display: block !important;
+    }
+
+    #lleo_dialog #lleo_optionsBtn img {
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    #lleo_dialog #lleo_sound {
+        float: left !important;
+        width: 16px !important;
+        height: 16px !important;
+        margin-left: 9px !important;
+        margin-right: 3px !important;
+        background: 0 0 no-repeat !important;
+        cursor: pointer !important;
+        display: none !important;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAfNJREFUeNq0U01IVFEU/u57Oo5WhBRIBBptykWLYBa2soWiEKQQEbrSFsGbVRQKQc2iFqGitXqvjQxCoCJCqyI0aBUtZILaJNUuYWYWo8HovJ/707nP94bnz0rxwvfOuefd8517fi5TSuE4i50YwZ3l37ZhNlpgzFkaaM/G9sHF1YskNrT+7l4PjMOcb78t2JL71uxgB+2UlfxHTtq5N94fIOh/88kWgWfl73ZCSQkpeGg3H091JY6dI2S00qA/N3KO3dDUYhFgEmZGurG+w9FqApIHsVM7kaTF9Nhn0r8Q7hPWQgIRuNaH3AMUA4W/Lkdh04cpFS43G0TgxQTvCdMETVAk3KynIHwXZU/ge8XDt7KH9bKLjU0P2zVO5LsEpSejVRJ9UR18EtfqKegovs9R3Q6w9c/H1o4Aa2Jwm1lIvn9RJ4w9RdRRzqcYrpwycCll4Cy1lnkS3Bc6vfBg28v8aRIfI78zhB/1GygROH3jLyyzMQ0zlUZuZBSlKkeLoegGtTjYLcJ8pF+NakHOFC2J6w+f25mxSfWrWFF/ShXVPTGvtN14NNkVnxlYWJkgZEL7/vwKr55lKSVnaGYWkuYgrgG172uUv47+U7fw0EHaJXmalUQy/HqO6lBzEsVjJC4Q8kd6TETQpjuaGOvjv8b/AgwA/ij1XMx58NIAAAAASUVORK5CYII=) !important;
+    }
+
+    #lleo_dialog .lleo_has_sound #lleo_sound {
+        display: block !important;
+    }
+
+    #lleo_dialog #lleo_soundWave {
+        border: solid 5px #4495CC !important;
+        border-radius: 5px !important;
+        position: absolute !important;
+        left: -5px !important;
+        top: -5px !important;
+        right: -5px !important;
+        bottom: -5px !important;
+        z-index: 0 !important;
+        opacity: 0.9 !important;
+        display: none !important;
+    }
+
+    #lleo_dialog #lleo_soundWave.lleo_beforePlaying {
+        display: block !important;
+    }
+
+    #lleo_dialog #lleo_soundWave.lleo_playing {
+        opacity: 0 !important;
+        border-width: 20px !important;
+        border-radius: 30px !important;
+
+        -webkit-transform: scale(1.07, 1.1) !important;
+        -moz-transform: scale(1.07, 1.1) !important;
+        -ms-transform: scale(1.07, 1.1) !important;
+        transform: scale(1.07, 1.1) !important;
+
+        -webkit-transition: all 0.6s !important;
+        -moz-transition: all 0.6s !important;
+        -ms-transition: all 0.6s !important;
+        transition: all 0.6s !important;
+    }
+
+    #lleo_dialog #lleo_picOuter {
+        position: absolute !important;
+        float: right !important;
+        top: 4px;
+        right: 5px;
+        z-index: 9 !important;
+        display: none !important;
+        width: 100px !important;
+    }
+
+    #lleo_dialog.lleo_optionsShown #lleo_picOuter {
+        right: 25px;
+    }
+
+    #lleo_dialog .lleo_has_pic #lleo_picOuter {
+        display: block !important;
+    }
+
+    #lleo_dialog #lleo_picOuter:hover {
+        width: auto !important;
+        z-index: 11 !important;
+    }
+
+    #lleo_dialog #lleo_pic,
+    #lleo_dialog #lleo_picBig {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        border: solid 2px #fff !important;
+        -webkit-border-radius: 2px !important;
+        -moz-border-radius: 2px !important;
+        border-radius: 2px !important;
+        z-index: 1 !important;
+    }
+
+    #lleo_dialog #lleo_pic {
+        position: relative !important;
+        border: none !important;
+        width: 30px !important;
+    }
+
+    #lleo_dialog #lleo_picBig {
+        box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.3);
+        z-index: 2 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    #lleo_dialog #lleo_picOuter:hover #lleo_picBig {
+        visibility: visible !important;
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.3s !important;
+        -webkit-transition-delay: 0.3s !important;
+    }
+
+    #lleo_dialog #lleo_transcription {
+        margin: 0 80px 4px 31px !important;
+        color: #aaaaaa !important;
+    }
+
+    #lleo_dialog .lleo_no_trans {
+        color: #aaa !important;
+    }
+
+    #lleo_dialog .ll-translation-counter {
+        float: right !important;
+        font-size: 11px !important;
+        color: #aaa !important;
+        padding: 2px 2px 1px 10px !important;
+    }
+
+    #lleo_dialog .ll-translation-text {
+        float: left !important;
+        /*width: 80% !important;*/
+    }
+
+    #lleo_dialog #lleo_trans a {
+        color: #3F669F !important;
+        text-decoration: none !important;
+        text-overflow: ellipsis !important;
+        padding: 1px 4px !important;
+        overflow: hidden !important;
+        float: left !important;
+        width: 320px !important;
+    }
+
+    #lleo_dialog .ll-translation-item {
+        color: #3F669F !important;
+        border: solid 1px #fff !important;
+        padding: 3px !important;
+        width: 100% !important;
+        float: left !important;
+        -moz-border-radius: 2px !important;
+        -webkit-border-radius: 2px !important;
+        border-radius: 2px !important;
+    }
+
+    #lleo_dialog .ll-translation-item:hover {
+        border: solid 1px #9FC2C9 !important;
+        background: #EDF4F6 !important;
+        cursor: pointer !important;
+    }
+
+    #lleo_dialog .ll-translation-item:hover .ll-translation-counter {
+        color: #83a0a6 !important;
+    }
+
+    #lleo_dialog .ll-translation-marker {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAWSURBVBhXY7RPm/+fAQkwIXNAbMICAJQ8AkvqWg/SAAAAAElFTkSuQmCC) !important;
+        display: inline-block !important;
+        width: 4px !important;
+        height: 4px !important;
+        margin: 7px 5px 2px 2px !important;
+        float: left !important;
+    }
+
+    #lleo_dialog #lleo_icons {
+        color: #aaa !important;
+        font-size: 11px !important;
+        background: #f8f8f8 !important;
+        padding: 10px 10px 10px 16px !important;
+    }
+
+    #lleo_icons a {
+        display: inline-block !important;
+        width: 16px !important;
+        height: 16px !important;
+        margin: 0 10px -4px 3px !important;
+        text-decoration: none !important;
+        opacity: 0.5 !important;
+        background: url(data:image/png;base64,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) !important;
+    }
+
+    #lleo_icons a:hover {
+        opacity: 1 !important;
+    }
+
+    #lleo_icons a.lleo_google {
+        background-position: -34px 0 !important;
+    }
+
+    #lleo_icons a.lleo_multitran {
+        background-position: -64px 0 !important;
+    }
+
+    #lleo_icons a.lleo_lingvo {
+        background-position: -51px 0 !important;
+        width: 12px !important;
+    }
+
+    #lleo_icons a.lleo_dict {
+        background-position: -17px 0 !important;
+    }
+
+    #lleo_icons a.lleo_linguee {
+        background-position: -81px 0 !important;
+    }
+
+    #lleo_icons a.lleo_michaelis {
+        background-position: -98px 0 !important;
+    }
+
+    #lleo_dialog #lleo_contextContainer {
+        margin: 0 !important;
+        padding: 3px 15px 8px 10px !important;
+        background: #eee !important;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+        background: -moz-linear-gradient(-90deg, #fff, #eee) !important;
+        border-bottom: solid 1px #ddd !important;
+        border-top-left-radius: 3px !important;
+        border-top-right-radius: 3px !important;
+        display: none !important;
+        overflow: hidden !important;
+    }
+
+    #lleo_dialog .lleo_has_context #lleo_contextContainer {
+        display: block !important;
+    }
+
+    #lleo_dialog #lleo_context {
+        color: #444 !important;
+        text-shadow: 1px 1px 0 #f4f4f4 !important;
+        line-height: 12px !important;
+        font-size: 11px !important;
+        margin-left: 2px !important;
+    }
+
+    #lleo_dialog #lleo_context b {
+        line-height: 12px !important;
+        color: #000 !important;
+        font-weight: bold !important;
+        font-size: 11px !important;
+    }
+
+    /*#lleo_dialog #lleo_gBrand {
+        color: #aaa !important;
+        font-size: 10px !important;
+        *//*padding-right: 52px !important;*//*
+        padding-bottom: 14px !important;
+        margin: -3px 4px 0 4px !important;
+        background: left bottom url(data:image/png;base64,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) no-repeat !important;
+        display: inline-block !important;
+        float: right !important;
+    }
+    #lleo_dialog #lleo_gBrand.hidden {
+        display: none !important;
+    }*/
+    #lleo_dialog #lleo_translateContextLink {
+        color: #444 !important;
+        text-shadow: 1px 1px 0 #f4f4f4 !important;
+        background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ddd)) !important;
+        background: -moz-linear-gradient(-90deg, #f4f4f4, #ddd) !important;
+        border: solid 1px !important;
+        box-shadow: 1px 1px 0 #f6f6f6 !important;
+        border-color: #999 #aaa #aaa #999 !important;
+        -moz-border-radius: 2px !important;
+        -webkit-border-radius: 2px !important;
+        border-radius: 2px !important;
+        padding: 0 3px !important;
+        font-size: 11px !important;
+        text-decoration: none !important;
+        margin: 1px 5px 0 !important;
+        display: inline-block !important;
+        white-space: nowrap !important;
+    }
+
+    #lleo_dialog #lleo_translateContextLink:hover {
+        background: #f8f8f8 !important;
+    }
+
+    #lleo_dialog #lleo_translateContextLink.hidden {
+        visibility: hidden !important;
+    }
+
+    #lleo_dialog #lleo_setTransForm {
+        display: block !important;
+        margin-top: 3px !important;
+        padding-top: 5px !important;
+        /* Set position and background because the form might be overlapped by an image when no translations */
+        position: relative !important;
+        background: #fff !important;
+        z-index: 10 !important;
+        padding-bottom: 10px !important;
+        padding-left: 16px !important;
+    }
+
+    #lleo_dialog .lleo-custom-translation {
+        padding: 4px 5px !important;
+        border: solid 1px #ddd !important;
+        border-radius: 2px !important;
+        width: 90% !important;
+        min-width: 270px !important;
+        background: -webkit-gradient(linear, 0 0, 0 20, from(#f1f1f1), to(#fff)) !important;
+        background: -moz-linear-gradient(-90deg, #f1f1f1, #fff) !important;
+        font: normal 13px Arial, Helvetica !important;
+        line-height: 15px !important;
+    }
+
+    #lleo_dialog .lleo-custom-translation:hover {
+        border: solid 1px #aaa !important;
+    }
+
+    #lleo_dialog .lleo-custom-translation:focus {
+        background: #FFFEC9 !important;
+    }
+
+    #lleo_dialog *.hidden {
+        display: none !important;
+    }
+
+    #lleo_dialog .infinitive {
+        color: #D56E00 !important;
+        text-decoration: none;
+        border-bottom: 1px dotted #D56E00 !important;
+    }
+
+    #lleo_dialog .infinitive:hover {
+        border: none !important;
+    }
+
+    #lleo_dialog .lleo_separator {
+        height: 1px !important;
+        background: #eee;
+        margin-top: 10px !important;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, #eee 8%, rgba(255, 255, 255, 1) 80%) !important;
+        background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, #eee 8%, rgba(255, 255, 255, 1) 80%) !important;
+        background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, #eee 8%, rgba(255, 255, 255, 1) 80%) !important;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, #eee 8%, rgba(255, 255, 255, 1) 80%) !important;
+    }
+
+    #lleo_dialog #lleo_trans {
+        /*border-top: 1px solid #eeeeee !important;*/
+        padding: 5px 30px 0 14px !important;
+        zoom: 1;
+    }
+
+    #lleo_dialog .lleo_clearfix {
+        display: block !important;
+        clear: both !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        font-size: 0 !important;
+    }
+
+    #lleo_dialog #lleo_picOuter table {
+        width: 44px !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        vertical-align: middle !important;
+    }
+
+    #lleo_dialog #lleo_picOuter td {
+        width: 38px !important;
+        height: 38px !important;
+        /*border: 1px solid #eeeeee !important;*/
+        vertical-align: middle !important;
+        text-align: center !important;
+    }
+
+    #lleo_dialog #lleo_picOuter td div {
+        height: 38px !important;
+        overflow: hidden !important;
+    }
+
+    #lleo_dialog .lleo_empty {
+        margin: 0 5px 7px !important;
+    }
+
+    #lleo_youtubeExportBtn {
+        margin-left: 10px;
+        height: 24px;
+    }
+
+    #lleo_youtubeExportBtn i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: 0 0 url(https://d144fqpiyasmrr.cloudfront.net/plugins/all/images/i16.png) !important;
+    }
+
+    #lleo_youtubeExportBtn .yt-uix-button-content {
+        font-size: 12px;
+        line-height: 2px;
+    }
+
+    /*** Parsed Lyrics Content *****************************/
+
+    .lleo_lyrics tran {
+        background: transparent !important;
+        border-radius: 2px !important;
+        text-shadow: none !important;
+        cursor: pointer !important;
+    }
+
+    .lleo_lyrics tran:hover {
+        color: #fff !important;
+        background: #C77213 !important;
+        -webkit-transition: all 0.1s !important;
+        -moz-transition: all 0.1s !important;
+        -ms-transition: all 0.1s !important;
+        -o-transition: all 0.1s !important;
+        transition: all 0.1s !important;
+    }
+
+    .lleo_songName {
+        border: solid 1px #ffd47c;
+        background: #fff1c2;
+        border-radius: 2px;
+    }
+
+    .lleo_hidden_iframe {
+        visibility: hidden;
+    }</style>
+</head>
+<body><!--noindex-->
+<div id="wrapper">
+    <div class="pageWidth" id="header">
+        <p id="title"><b><a href="./" title="Prometheus Capital Partners">Prometheus Capital
+            Partners</a></b></p>
+        <a href="./index.html" title="Home"><img align="left" alt="Home" id="logo" src="./images/spacer.gif"></a>
+
+        <div id="contacts">
+            <p id="langMenu"><a href="./ru/portfolio.html">Русский</a></p>
+        </div>
+    </div>
+
+    <div class="pageWidth" id="container">
+        <div id="content">
+            <div class="columnPadding" id="text"><!--/noindex--><!--Menu-->
+                <ul id="menu">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./team.html">The Team</a></li>
+                    <li><a href="./investment-criteria.html">PE Investment Criteria</a></li>
+                    <li><a href="./value-proposition.html">PE Value Proposition</a></li>
+                    <li><a class="selected" href="./portfolio.html">Portfolio</a></li>
+                    <li><a href="./contacts.html">Contact Us</a></li>
+                </ul>
+                <!--Menu /--><!-- Main Content -->
+
+                <h1>Portfolio</h1>
+
+                <p><!--[if gte mso 9]>
+                    <xml>
+                        <o:OfficeDocumentSettings>
+                            <o:AllowPNG/>
+                        </o:OfficeDocumentSettings>
+                    </xml><![endif]--></p>
+
+                <p><!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Normal</w:View>
+                            <w:Zoom>0</w:Zoom>
+                            <w:TrackMoves/>
+                            <w:TrackFormatting/>
+                            <w:PunctuationKerning/>
+                            <w:ValidateAgainstSchemas/>
+                            <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+                            <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+                            <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+                            <w:DoNotPromoteQF/>
+                            <w:LidThemeOther>EN-GB</w:LidThemeOther>
+                            <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+                            <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+                            <w:Compatibility>
+                                <w:BreakWrappedTables/>
+                                <w:SnapToGridInCell/>
+                                <w:WrapTextWithPunct/>
+                                <w:UseAsianBreakRules/>
+                                <w:DontGrowAutofit/>
+                                <w:SplitPgBreakAndParaMark/>
+                                <w:EnableOpenTypeKerning/>
+                                <w:DontFlipMirrorIndents/>
+                                <w:OverrideTableStyleHps/>
+                                <w:UseFELayout/>
+                            </w:Compatibility>
+                            <m:mathPr>
+                                <m:mathFont m:val="Cambria Math"/>
+                                <m:brkBin m:val="before"/>
+                                <m:brkBinSub m:val="&#45;-"/>
+                                <m:smallFrac m:val="off"/>
+                                <m:dispDef/>
+                                <m:lMargin m:val="0"/>
+                                <m:rMargin m:val="0"/>
+                                <m:defJc m:val="centerGroup"/>
+                                <m:wrapIndent m:val="1440"/>
+                                <m:intLim m:val="subSup"/>
+                                <m:naryLim m:val="undOvr"/>
+                            </m:mathPr>
+                        </w:WordDocument>
+                    </xml><![endif]--><!--[if gte mso 9]>
+                    <xml>
+                        <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+                                        DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+                                        LatentStyleCount="371">
+                            <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+                            <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+                            <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 6"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 7"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 8"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index 9"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 1"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 2"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 3"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 4"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 5"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 6"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 7"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 8"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="toc 9"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Normal Indent"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="footnote text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="annotation text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="header"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="footer"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="index heading"/>
+                            <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="table of figures"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="envelope address"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="envelope return"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="footnote reference"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="annotation reference"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="line number"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="page number"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="endnote reference"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="endnote text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="table of authorities"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="macro"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="toa heading"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Bullet"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Number"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Bullet 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Bullet 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Bullet 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Bullet 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Number 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Number 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Number 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Number 5"/>
+                            <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Closing"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Signature"/>
+                            <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text Indent"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Continue"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Continue 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Continue 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Continue 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="List Continue 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Message Header"/>
+                            <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Salutation"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Date"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text First Indent"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text First Indent 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Note Heading"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text Indent 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Body Text Indent 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Block Text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Hyperlink"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="FollowedHyperlink"/>
+                            <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+                            <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Document Map"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Plain Text"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="E-mail Signature"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Top of Form"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Bottom of Form"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Normal (Web)"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Acronym"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Address"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Cite"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Code"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Definition"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Keyboard"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Preformatted"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Sample"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Typewriter"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="HTML Variable"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Normal Table"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="annotation subject"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="No List"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Outline List 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Outline List 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Outline List 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Simple 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Simple 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Simple 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Classic 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Classic 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Classic 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Classic 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Colorful 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Colorful 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Colorful 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Columns 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Columns 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Columns 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Columns 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Columns 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 6"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 7"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Grid 8"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 4"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 5"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 6"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 7"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table List 8"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table 3D effects 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table 3D effects 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table 3D effects 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Contemporary"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Elegant"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Professional"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Subtle 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Subtle 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Web 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Web 2"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Web 3"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Balloon Text"/>
+                            <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
+                            <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+                                            Name="Table Theme"/>
+                            <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+                            <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+                            <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+                            <w:LsdException Locked="false" Priority="34" QFormat="true"
+                                            Name="List Paragraph"/>
+                            <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+                            <w:LsdException Locked="false" Priority="30" QFormat="true"
+                                            Name="Intense Quote"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+                            <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+                            <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+                            <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+                            <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+                            <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+                            <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+                            <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+                            <w:LsdException Locked="false" Priority="19" QFormat="true"
+                                            Name="Subtle Emphasis"/>
+                            <w:LsdException Locked="false" Priority="21" QFormat="true"
+                                            Name="Intense Emphasis"/>
+                            <w:LsdException Locked="false" Priority="31" QFormat="true"
+                                            Name="Subtle Reference"/>
+                            <w:LsdException Locked="false" Priority="32" QFormat="true"
+                                            Name="Intense Reference"/>
+                            <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+                            <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+                                            UnhideWhenUsed="true" Name="Bibliography"/>
+                            <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+                                            UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+                            <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+                            <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+                            <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+                            <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+                            <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+                            <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+                            <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+                            <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+                            <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 1"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 1"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 1"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 2"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 2"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 2"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 3"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 3"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 3"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 4"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 4"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 4"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 5"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 5"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 5"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="Grid Table 1 Light Accent 6"/>
+                            <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="Grid Table 6 Colorful Accent 6"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="Grid Table 7 Colorful Accent 6"/>
+                            <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+                            <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+                            <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 1"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 1"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 1"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 2"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 2"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 2"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 3"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 3"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 3"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 4"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 4"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 4"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 5"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 5"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 5"/>
+                            <w:LsdException Locked="false" Priority="46"
+                                            Name="List Table 1 Light Accent 6"/>
+                            <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+                            <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+                            <w:LsdException Locked="false" Priority="51"
+                                            Name="List Table 6 Colorful Accent 6"/>
+                            <w:LsdException Locked="false" Priority="52"
+                                            Name="List Table 7 Colorful Accent 6"/>
+                        </w:LatentStyles>
+                    </xml><![endif]--><!--[if gte mso 10]>
+                    <style>
+                        /* Style Definitions */
+                        table.MsoNormalTable {
+                            mso-style-name: "Table Normal";
+                            mso-tstyle-rowband-size: 0;
+                            mso-tstyle-colband-size: 0;
+                            mso-style-noshow: yes;
+                            mso-style-priority: 99;
+                            mso-style-parent: "";
+                            mso-padding-alt: 0cm 5.4pt 0cm 5.4pt;
+                            mso-para-margin-top: 0cm;
+                            mso-para-margin-right: 0cm;
+                            mso-para-margin-bottom: 6.0pt;
+                            mso-para-margin-left: 0cm;
+                            line-height: 110%;
+                            mso-pagination: widow-orphan;
+                            font-size: 10.0pt;
+                            font-family: "Calibri", sans-serif;
+                            mso-ascii-font-family: Calibri;
+                            mso-ascii-theme-font: minor-latin;
+                            mso-hansi-font-family: Calibri;
+                            mso-hansi-theme-font: minor-latin;
+                            mso-ansi-language: EN-GB;
+                        }
+                    </style>
+                    <![endif]--></p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        style="mso-ansi-language: EN-US;">A.<span style="mso-spacerun: yes;">&nbsp; </span><strong>Bethowen</strong></span>
+                </p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        style="mso-ansi-language: EN-US;">In May 2010</span><span lang="EN-GB">,</span><span
+                        style="mso-ansi-language: EN-US;"> Prometheus Capital Partners bought a controlling interest in two of the three largest Russian pet-product chains and merged them to form Bethowen. Prometheus recruited a new management team, defined the financial and growth strategy of the company. The new team redefined the business model, brand, and store layout. An extensive private level program&nbsp;was implemented. </span><span
+                        lang="EN-GB">At present, </span><span style="mso-ansi-language: EN-US;">Bethowen</span><span
+                        lang="EN-GB"> has </span><span
+                        style="mso-ansi-language: EN-US;">over 1200 employees, a</span><span lang="EN-GB">nd more than 75 stores. </span><span
+                        style="mso-ansi-language: EN-US;">The geography of Bethowen store network is </span><span
+                        lang="EN-GB">wide: </span><span
+                        style="mso-ansi-language: EN-US;">Moscow and Moscow Region</span><span
+                        lang="EN-GB">,</span><span
+                        style="mso-ansi-language: EN-US;"> St. Petersburg, Togliatti, Samara, </span><span lang="EN-GB">Sarov, </span><span
+                        style="mso-ansi-language: EN-US;">Kazan, Nizhny Novgorod.</span> <span
+                        style="mso-ansi-language: EN-US;">Bethowen is the clear leader in the highly fragmented pet retail market</span><span
+                        lang="EN-GB">: </span><span style="mso-ansi-language: EN-US;">7.4% of the Russian specialty market</span><span
+                        lang="EN-GB">, </span><span style="mso-ansi-language: EN-US;">~18-20% of the Moscow specialty market. Follow the link: </span><span
+                        lang="EN-GB"><a href="http://www.bethowen.ru/"><span lang="EN-US"
+                                                                             style="mso-ansi-language: EN-US;">www.bethowen.ru</span></a></span><span
+                        style="mso-ansi-language: EN-US;"> </span></p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        style="mso-ansi-language: EN-US;">B.<span
+                        style="mso-spacerun: yes;">&nbsp;&nbsp; </span><strong>AT Consulting</strong></span></p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        lang="EN-GB">AT Consulting is a </span><span style="mso-ansi-language: EN-US;">Leading</span>
+                    <span style="mso-ansi-language: EN-US;">Technology and Management Consulting Services Provider on the territory of the Russian Federation and </span><span
+                            lang="EN-GB">the </span><span style="mso-ansi-language: EN-US;">CIS Countries with major clients in the telecommunications, finance, governmental, and other sectors. The key activities of AT Consulting include implementation and maintenance of complex IT systems, management consulting for IT, IT outsourcing, and project management. The company employs more than 2100 people. Among the clients of AT Consulting are the biggest companies of Russia and the CIS, such as Sberbank of Russia, VTB Group, OJSC VimpelCom, Rostelecom, NB TRUST, Alfa-Bank Rostelecom, SIBUR Group, Rosgosstrakh, Kazakhtelecom, OTP Bank, Yota, MTS and many others. Partners of AT Consulting are the leaders of the world IT industry: Oracle, SAP, SAS, IBM, Microsoft, Informatica, MicroStrategy, Avaya, EMC, etc. Follow the link: </span><span
+                            lang="EN-GB"><a href="http://www.at-consulting.ru/"><span lang="EN-US"
+                                                                                      style="mso-ansi-language: EN-US;">www.at-consulting.ru</span></a></span><span
+                            style="mso-ansi-language: EN-US;"> </span></p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        style="mso-ansi-language: EN-US;">C.<span style="mso-spacerun: yes;">&nbsp; </span><strong>Bagrationi</strong></span>
+                </p>
+
+                <p style="text-align: justify; line-height: 115%; -ms-text-justify: inter-ideograph;"><span
+                        lang="EN-GB">JSC Bagrationi 1882 was founded in 1937. Today, Bagrationi is number 1 producer of sparkling wines in Georgia. The company’s production is greater than 2 million bottles per year, using both the tradition in-bottle as well as reservoir methods. In 2016, market share in Georgia increased to 84%. The company’s products are very popular not only at the local market but throughout the entire Caucasus, Russia, Ukraine, China, and USA markets as well. Bagrationi’s plant has been completely updated and equipped with advanced Italian equipment. In addition to its well-developed material and technical bases, Bagrationi has its own vineyards within the most prestigious micro zones of Georgia in the Imeteri and Kartli regions. Merging experience and contemporary technologies results in sparkling wine production with excellent, and unique taste. </span><span
+                        style="mso-ansi-language: EN-US;">Follow the link: </span><span lang="EN-GB"><a
+                        href="http://www.bagrationi.ge/"><span lang="EN-US" style="mso-ansi-language: EN-US;">www.bagrationi.ge</span></a></span><span
+                        style="color: black; line-height: 115%; font-size: 9pt;"> </span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
