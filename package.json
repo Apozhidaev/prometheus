@@ -11,6 +11,9 @@
   },
   "author": "",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-insert": "^0.5.0",
+    "handlebars": "^4.0.5",
+    "rimraf": "^2.5.4"
   }
 }
