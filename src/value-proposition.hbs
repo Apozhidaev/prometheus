@@ -1,0 +1,20 @@
+﻿<p>{{local.p1}}</p>
+<ol>
+    <li>{{local.ol.li1}}</li>
+    <li>
+        {{local.ol.li2.value}}
+        <ul>
+            <li>{{local.ol.li2.ul.li1}}</li>
+            <li>{{local.ol.li2.ul.li2}}</li>
+            <li>{{local.ol.li2.ul.li3}}</li>
+            {{#if local.ol.li2.ul.li4}}
+                <li>{{local.ol.li2.ul.li4}}</li>
+            {{/if}}
+        </ul>
+    </li>
+    <li>{{local.ol.li3}}</li>
+    <li>{{local.ol.li4}}</li>
+    {{#if local.ol.li5}}
+        <li>{{local.ol.li5}}</li>
+    {{/if}}
+</ol>

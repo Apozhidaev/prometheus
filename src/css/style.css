@@ -1,0 +1,8 @@
+* {
+    font: 18px Garamond, Times;
+    color: #333333;
+}
+
+body {
+    background: url(../images/header-visual.jpg) no-repeat center top;
+}

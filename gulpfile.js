@@ -1,5 +1,6 @@
 ﻿var gulp = require("gulp");
 var insert = require('gulp-insert');
+var rename = require('gulp-rename');
 var handlebars = require('handlebars');
 var rimraf = require("rimraf");
 var fs = require('fs');
@@ -9,19 +10,27 @@ var paths = {
     src: './src/'
 };
 
-handlebars.registerHelper('setTitle', function(options) {
-    options.data.root.title = options.fn(this);
-});
-
-handlebars.registerHelper('link', function(text, url, options) {
-    text = handlebars.Utils.escapeExpression(text);
-    url  = handlebars.Utils.escapeExpression(url);
+handlebars.registerHelper('link', function(url, options) {
+    url  = handlebars.Utils.escapeExpression(url) + '.html';
 
     var className = url.indexOf(options.data.root.file) !== -1 ? "selected" : "";
-    var result = '<a class="'+ className + '" href="' + url + '">' + text + '</a>';
+    var result = ' class="'+ className + '" href="' + url + '"';
 
     return new handlebars.SafeString(result);
 });
+
+handlebars.registerHelper('if', function(conditional, options) {
+    if(conditional) {
+        return options.fn(this);
+    }
+});
+
+function getLocal(file, culture){
+    culture = culture ? culture + '/' : '';
+    var localFile = file.replace(/(\.html)|(\.hbs)$/, ".json");
+    var json = fs.readFileSync(paths.src + 'local/' + culture + localFile, 'utf8');
+    return JSON.parse(json);
+}
 
 gulp.task('clean', function (cb) {
   rimraf(paths.wwwroot, cb);
@@ -29,34 +38,67 @@ gulp.task('clean', function (cb) {
 
 gulp.task('copy', ['clean'], function () {
 
-    return gulp.src(['!' + paths.src + '**/*.{html,hbs}', paths.src + '**/*.*'])
+    return gulp.src(['!' + paths.src + '**/*.{html,hbs}',
+            '!' + paths.src + 'local/**/*.*',
+            paths.src + '**/*.*'])
         .pipe(gulp.dest(paths.wwwroot));
 
 });
 
 gulp.task('build', ['copy'], function () {
 
-    var source = fs.readFileSync(paths.src + 'layout.hbs', 'utf8');
-    var template = handlebars.compile(source);
+    var layout = fs.readFileSync(paths.src + 'layout.hbs', 'utf8');
+    var local = getLocal('layout.hbs');
+    var template = handlebars.compile(layout);
 
-    gulp.src(paths.src + '*.html')
+    return gulp.src(['!' + paths.src + 'layout.hbs', paths.src + '*.hbs'])
+        .pipe(rename(function (path) {
+            path.extname = ".html"
+        }))
         .pipe(insert.transform(function(contents, file) {
-            var context = {file: file.relative};
+
+            var pageLocal = getLocal(file.relative);
+            var context = {
+                culture: 'en',
+                prefix: './',
+                culturePrefix: './ru/',
+                file: file.relative,
+                local: pageLocal
+            };
             context.body = handlebars.compile(contents)(context);
+            context.local = local;
+            context.title = pageLocal.title;
             return template(context);
         }))
         .pipe(gulp.dest(paths.wwwroot));
 
-    var sourceRu = fs.readFileSync(paths.src + 'ru/layout.hbs', 'utf8');
-    var templateRu = handlebars.compile(sourceRu);
 
-    gulp.src(paths.src + 'ru/*.html')
+});
+
+gulp.task('build:local', ['build'], function () {
+
+    var layout = fs.readFileSync(paths.src + 'layout.hbs', 'utf8');
+    var local = getLocal('layout.hbs', 'ru');
+    var template = handlebars.compile(layout);
+
+    return gulp.src(['!' + paths.src + 'layout.hbs', paths.src + '*.hbs'])
+        .pipe(rename(function (path) {
+            path.extname = ".html"
+        }))
         .pipe(insert.transform(function(contents, file) {
-            var context = {file: file.relative};
+            var pageLocal = getLocal(file.relative, 'ru');
+            var context = {
+                culture: 'ru',
+                prefix: '../',
+                culturePrefix: '../',
+                file: file.relative,
+                local: pageLocal
+            };
             context.body = handlebars.compile(contents)(context);
-            return templateRu(context);
+            context.local = local;
+            context.title = pageLocal.title;
+            return template(context);
         }))
         .pipe(gulp.dest(paths.wwwroot + 'ru/'));
-
 
 });
