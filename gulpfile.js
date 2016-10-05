@@ -10,11 +10,10 @@ var paths = {
     src: './src/'
 };
 
-handlebars.registerHelper('link', function(url, options) {
-    url  = handlebars.Utils.escapeExpression(url) + '.html';
+handlebars.registerHelper('active', function(url, options) {
 
-    var className = url.indexOf(options.data.root.file) !== -1 ? "selected" : "";
-    var result = ' class="'+ className + '" href="' + url + '"';
+    var className = options.data.root.file.indexOf(url) !== -1 ? "active" : "";
+    var result = ' class="'+ className + '"';
 
     return new handlebars.SafeString(result);
 });

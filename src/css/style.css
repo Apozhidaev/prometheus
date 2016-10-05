@@ -1,8 +1,124 @@
-* {
-    font: 18px Garamond, Times;
-    color: #333333;
-}
-
 body {
     background: url(../img/header-visual.jpg) no-repeat center top;
+    font-family: Garamond, Times, serif;
+    font-size: 18px;
+}
+
+.header {
+    min-height: 300px;
+}
+
+.logo {
+    margin-top: 20px;
+    float: left;
+}
+
+.lang a {
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+}
+
+.lang a {
+    color: #da251c;
+}
+
+.footer{
+    height: 50px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 30px;
+    border: 1px solid transparent;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #e4261d;
+    background-color: transparent;
+    border-bottom: #333333 solid 1px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #da251c;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #e4261d;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: transparent;
+}
+
+.team-img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.team-desc{
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+
+    body {
+        background: url(../img/header-visual-xs.jpg) no-repeat center top;
+        font-family: Garamond, Times, serif;
+        font-size: 18px;
+    }
+
+    .header {
+        min-height: 30px;
+    }
+
+    .lang {
+        margin-top: 0px;
+        margin-right: 2px;
+        float: right;
+    }
+
+    .logo img{
+        width: 180px;
+    }
+
+    .footer{
+        height: 30px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    body {
+        background: url(../img/header-visual-md.jpg) no-repeat center top;
+        font-family: Garamond, Times, serif;
+        font-size: 18px;
+    }
+
+    .header {
+        min-height: 200px;
+    }
+
+    .navbar-nav>li>a {
+        padding: 10px 10px;
+        font-size: 17px;
+    }
+
+    .logo img{
+        width: 220px;
+    }
+
+    .lang a {
+        color: #da251c;
+        font-size: 17px;
+    }
 }
