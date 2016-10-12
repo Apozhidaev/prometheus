@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{prefix}}img/levan.jpg" target="_blank" class="team-img">
+                <a class="team-img" data-toggle="modal" data-target="#modal-a">
                     <img src="{{prefix}}img/icon_levan.jpg" alt="Levan Vasadze"/>
                 </a>
                 <div><strong>{{local.a.name}}</strong>, {{local.a.job}}</div>
@@ -20,7 +20,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{prefix}}img/tom.jpg" target="_blank" class="team-img">
+                <a class="team-img" data-toggle="modal" data-target="#modal-b">
                     <img src="{{prefix}}img/icon_tom.jpg" alt="Tom Kosco"/>
                 </a>
                 <div><strong>{{local.b.name}}</strong>, {{local.b.job}}</div>
@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{prefix}}img/dmitriy.jpg" target="_blank" class="team-img">
+                <a class="team-img" data-toggle="modal" data-target="#modal-c">
                     <img src="{{prefix}}img/icon_dmitriy.jpg" alt="Dmitriy Manakov"/>
                 </a>
                 <div><strong>{{local.c.name}}</strong>, {{local.c.job}}</div>
@@ -48,6 +48,51 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="team-desc">{{local.c.desc}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal A -->
+<div class="modal fade" id="modal-a" tabindex="-1" role="dialog" aria-labelledby="modal-a-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{local.a.name}}</h4>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{prefix}}img/levan.jpg" alt="Levan Vasadze" style="width: 100%; max-width: 532px"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal B -->
+<div class="modal fade" id="modal-b" tabindex="-1" role="dialog" aria-labelledby="modal-b-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{local.b.name}}</h4>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{prefix}}img/tom.jpg" alt="Tom Kosco" style="width: 100%; max-width: 491px"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal C -->
+<div class="modal fade" id="modal-c" tabindex="-1" role="dialog" aria-labelledby="modal-c-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{local.c.name}}</h4>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{prefix}}img/dmitriy.jpg" alt="Dmitriy Manakov" style="width: 100%; max-width: 168px"/>
             </div>
         </div>
     </div>
