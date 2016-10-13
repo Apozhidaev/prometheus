@@ -69,6 +69,10 @@ body {
     margin-bottom: 20px;
 }
 
+.team-close-btn{
+    font-size: 27px;
+}
+
 @media (max-width: 767px) {
 
     body {

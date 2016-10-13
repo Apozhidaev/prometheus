@@ -44,7 +44,7 @@ gulp.task('copy', ['clean'], function () {
 
 });
 
-gulp.task('build', ['copy'], function () {
+gulp.task('build:core', ['copy'], function () {
 
     var layout = fs.readFileSync(paths.src + 'layout.hbs', 'utf8');
     var local = getLocal('layout.hbs');
@@ -74,7 +74,7 @@ gulp.task('build', ['copy'], function () {
 
 });
 
-gulp.task('build:local', ['build'], function () {
+gulp.task('build', ['build:core'], function () {
 
     var layout = fs.readFileSync(paths.src + 'layout.hbs', 'utf8');
     var local = getLocal('layout.hbs', 'ru');
